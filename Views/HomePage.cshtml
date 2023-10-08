@@ -1,0 +1,170 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "_Layout.cshtml";
+}
+
+        @await Html.PartialAsync("_CompaniesSection")
+
+<div class="container">
+        <div class="features">
+            <div class="featured-text">
+                <h5 class="orange-title">@Model.Value("serviceFeatureTitle")</h5>
+                <h1>@Model.Value("serviceFeaturesHeadline")</h1>
+                <a href="/@Model.Value("serviceFeaturesButtonUrl")" class="btn-yellow">@Model.Value("serviceFeaturesButton") <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+                @Html.GetBlockListHtml(Model.ServiceFeaturesBlockList)
+
+        </div>
+</div>
+
+<div class="about-company">
+            <div class="about-image">
+                <img src="media/wzjguwzc/daria-pimkina-tyaccl19a3q-unsplash.jpg">
+                
+                <div class="founder-infobox">
+                    <b>Samatha Brown,<p class="orange-title">Founder</b></p><p>"Lorem ipsum dolor sit amet"</p>
+                </div>
+            </div>
+            
+            <div class="about-text">
+                <h5 class="orange-title">About Company</h5>
+                <h1>We Are Business Consulting & Credit Repair Experts</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consequat, purus non accumsan
+                    pellentesque, augue dolor placerat neque, nec dapibus risus odio et libero. 
+                    <br>
+                    Aliquam sodales scelerisque erat, at eleifend ligula placerat et. Mauris gravida ante vitae dui interdum, et placerat odio
+                    rhoncus
+                </p>
+                <a href="/about" class="btn-black">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+             <a><i class="fa-solid fa-arrow-right"></i> Intro Video</a>
+            </div>
+</div>
+     
+     
+        
+    <div class="services">
+        <div class="container">
+            <h5 class="orange-title">@Model.Value("ourServicesSection")</h5>
+            <h1>@Model.Value("ourServicesTitle")</h1>
+            
+            @Html.GetBlockListHtml(Model.OurServicesBlockList)
+
+             <a href="/@Model.Value("ourServiceBoxUrl")" class="btn-transparent">@Model.Value("ourServicesButton") <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+   <div class="container">
+        <div class="why">
+            <h5 class="orange-title">Why choose us</h5>
+            <div class="why-flex-div">
+                <div class="why-text">
+                    <h1>Why We Are The Best Business Agency</h1>
+                    
+                        <div class="why-box">
+                            <div class="why-icon"><i class="fa-regular fa-thumbs-up"></i></div>
+                            <div class="why-info"><h3>Process Excellence</h3>Lorem, ipsum dolor sit amet censectetur</div>
+                        </div>
+                    
+                        <div class="why-box">
+                            <div class="why-icon"><i class="fa-solid fa-bullseye"></i></div>
+                        <div class="why-info"><h3>Strategic Planning</h3>Lorem, ipsum dolor sit amet censectetur</div>
+                         </div>
+                         
+                         <div class="why-box">
+                            <div class="why-icon"><i class="fa-solid fa-swatchbook"></i></div>
+                            <div class="why-info"><h3>Experience Design</h3>Lorem, ipsum dolor sit amet censectetur</div>
+                        </div>
+                        
+                        <div class="why-box">
+                            <div class="why-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                            <div class="why-info"><h3>Artificial Intelligence</h3>Lorem, ipsum dolor sit amet censectetur</div>
+                        </div>
+                </div>
+                <div class="why-picture">
+                    <img src="media/1bapxafa/amy-hirschi-K0c8ko3e6AA-unsplash.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        @await Html.PartialAsync("_ProjectCaseSection")
+
+        <div class="team">
+            <div class="team-header">
+                <div class="team-header-text"><h5 class="orange-title">Meet our Team</h5><h1>Experience Team Members </h1></div>
+                <button class="btn-transparent">Browse Team <i
+                        class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <div class="team-cards">
+                <div class="card" style="width: 15rem;">
+                    <img class="card-img-top" src="media/gdmbfxjm/christina-wocintechchat-com-SJvDxw0azqw-unsplash.jpg"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Kristine Palmer</h5>
+                        <p class="card-text">Chef Operation Officer</p>
+                    </div>
+                </div>
+
+                <div class="card" style="width: 15rem;">
+                    <img class="card-img-top" src="media/cdplwvbw/itay-verchik-6ZKGBzrDd3I-unsplash.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Mark Aubri</h5>
+                        <p class="card-text">Senior Consultant</p>
+                    </div>
+                </div>
+                
+                <div class="card" style="width: 15rem;">
+                    <img class="card-img-top" src="media/tsomlgq0/christina-wocintechchat-com-zpzf7tlj_ga-unsplash.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Kimberly Hansen</h5>
+                        <p class="card-text">Senior Consultant</p>
+                    </div>
+                </div>
+
+                
+                
+                <div class="card" style="width: 15rem;">
+                    <img class="card-img-top" src=" media/c3jbfj2k/the-connected-narrative-n8lrh2uxih4-unsplash.jpg"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Justin Willoman</h5>
+                        <p class="card-text">Senior Tech Consultant</p>
+                    </div>
+                </div>
+
+            </div>
+   
+        
+        <div class="container">
+
+            <div class="testimonial">
+                <h5 class="orange-title">Testimonial</h5>
+                <h1>What Our Clients Says</h1>
+                <div class="reviews">
+                    <div class="review">
+                        <div class="stars"><i class="fa-solid fa-star fa-2xs"></i><i class="fa-solid fa-star fa-2xs"></i><i class="fa-solid fa-star fa-2xs"></i><i class="fa-solid fa-star fa-2xs"></i></div>
+                        <div class="text">"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium libero, ad dignissimos velit qui, dolorum obcaecati cum saepe nesciunt nemo eligendi numquam voluptate"</div>
+                        <div class="author"><img src="media/0lflnqpn/customer-2.png"></div>
+                    </div>
+                    <div class="review">
+                        <div class="stars"><i class="fa-solid fa-star fa-2xs"></i><i class="fa-solid fa-star fa-2xs"></i><i class="fa-solid fa-star fa-2xs"></i><i class="fa-solid fa-star fa-2xs"></i></div>
+                        <div class="text">"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium libero, ad dignissimos velit qui, dolorum obcaecati cum saepe nesciunt nemo eligendi numquam voluptate"</div>
+                        <div class="author"><img src="media/zhcnijo2/customer-1.png"></div>
+                    </div>
+                    <div class="review">
+                        <div class="stars"><i class="fa-solid fa-star fa-2xs"></i><i class="fa-solid fa-star fa-2xs"></i><i class="fa-solid fa-star fa-2xs"></i><i class="fa-solid fa-star fa-2xs"></i></div>
+                        <div class="text">"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium libero, ad dignissimos velit qui, dolorum obcaecati cum saepe nesciunt nemo eligendi numquam voluptate"</div>
+                        <div class="author"><img src="media/aj2feyvp/customer.png"></div>
+                    </div>
+                </div>
+                <button class="btn-black">All Reviews<i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            
+        </div>
+     </div>
+        <div class="article-news-section">
+         @await Html.PartialAsync("_MiniArticleListSection")
+            </div>
+        </div>

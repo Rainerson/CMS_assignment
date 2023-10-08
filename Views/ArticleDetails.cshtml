@@ -1,0 +1,87 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ArticleDetails>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Services;
+@inject IUserService UserService;
+@{
+	Layout = "BreadcrumbLayout.cshtml";
+	var userService = UserService;
+	var image = Model.Value<IPublishedContent>("articleImage");
+
+
+}
+
+
+ <div class="container">
+    <div class="article-page">
+    
+   
+    
+        <div class="full-article">
+    
+            <h1>@Model.Name</h1>
+    
+            <div class="details"> 
+                @Model.CreateDate.ToString("MMM dd, yyyy")
+                <div class="yellow-dot"></div>
+                @Model.Value("articleCategory")
+                <div class="yellow-dot"></div>
+                @Model.CreatorName(UserService)
+            </div>
+    
+            <img src="@image.Url()" width="600">
+    
+            <div class="article-content"> 
+            @Model.Value("articleContent")
+            </div>
+    
+            <div class="tags">
+                @foreach (var tag in @Model.Value<IEnumerable<string>>("articleTags")) {
+                
+                    <span>@tag</span>
+                }
+                
+            </div>
+    
+        </div>
+    
+        <div class="recent">
+    
+            <div class="searchbar">
+                <i class="fa-solid fa-magnifying-glass"></i>Type to search..
+            </div>
+    
+            <div class="recent-posts">
+                <h4>Recent Posts</h4>
+                
+                @{ 	var selection =  Umbraco.Content(Guid.Parse("fcc94bce-16a3-4433-889d-7a750af373b9"))
+                .ChildrenOfType("articleDetails")
+                .Where(x => x.IsVisible())
+                .OrderByDescending(x => x.CreateDate);
+                
+                foreach (var title in selection) {
+                <div class="recent-post">@title.Name </div>
+                }
+                }
+                
+            </div>
+    
+            <div class="article-categories">
+                
+                 <h4>Categories</h4>
+                 
+                 Technology - 20 Posts
+                 Freelancing - 20 Posts
+                 Writing - 20 Posts
+                 Marketing - 20 Posts
+                 Business - 20 Posts
+                 Education - 14 Posts
+                
+                
+            </div>
+    
+        </div>
+        
+    </div>
+
+</div>

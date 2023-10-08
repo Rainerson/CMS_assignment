@@ -1,0 +1,85 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+
+    var itemsPerPage = 3;
+    var pageNumber = 1;
+
+    
+    if (!int.TryParse(Context.Request.Query["page"], out pageNumber)) {
+        pageNumber = 1;
+    }
+
+
+	var selection = Umbraco.Content(Guid.Parse("fcc94bce-16a3-4433-889d-7a750af373b9"))?
+    .ChildrenOfType("articleDetails")?
+    .Where(x => x.IsVisible())
+    .OrderByDescending(x => x.CreateDate).ToList();
+    
+    var totalItems = selection?.Count() ?? 0;
+    var pagedItems = selection?.Skip((pageNumber -1) * itemsPerPage).Take(itemsPerPage);
+    
+}
+
+
+<div class="container">            
+
+        <div class="article-header">
+                <div class="team-header-text"><h5 class="orange-title">Article & News</h5><h1>Get Every Single Article & News </h1></div>
+                <button class="btn-transparent">Browse Articles<i
+                        class="fa-solid fa-arrow-right"></i></button>
+        </div
+        >
+    <div class="article-news">
+        
+
+    
+    @if (pagedItems != null) {
+    
+        	foreach (var item in pagedItems)
+    	{
+    	
+    	var image = item.Value<IPublishedContent>("articleImage");
+    	
+        	<a href="@item.Url()" class="article">
+        		<div class="card">
+                    <div class="img">
+                        <img src="@image?.Url()">
+                        <div class="date">
+                            <b>@item.CreateDate.ToString("dd")</b>
+                            @item.CreateDate.ToString("MMM")
+                        </div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <p class="card-category">@item.Value("articleCategory")</p>
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text">@item.Value("articlePreamble")</p>
+                    </div>
+                </div>
+            </a>    
+    		
+    	}
+    
+    
+    }
+    
+    </div>
+
+<div class="page-navigation">
+   <ul class="pagination">
+
+
+     
+    @for (int i = 1; i <= Math.Ceiling((decimal)totalItems / itemsPerPage); i++) {
+        
+        if (i == pageNumber) {
+        <li class="page-item"><a class="page-link active" href="#"><div class="yellow-dot"></div></a></li>
+        } else {
+         <li class="page-item"><a class="page-link" href="?page=@i"><div class="yellow-dot"></div></a></li>
+        }
+    }
+   
+
+   
+   </ul>
+</div> 

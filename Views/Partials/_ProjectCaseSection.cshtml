@@ -1,0 +1,55 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+
+	var selection = Umbraco.Content(Guid.Parse("fcc94bce-16a3-4433-889d-7a750af373b9"))?
+    .ChildrenOfType("articleDetails")?
+    .Where(x => x.IsVisible())
+    .OrderByDescending(x => x.CreateDate).Take(4);
+    
+ }   
+    
+    
+    
+<div class="container">
+
+            
+                   
+    <div class="project-and-case">
+        <h5 class="orange-title">Project & Case Studies</h5>
+        <h1>Let's Look at Our Global Projects</h1> 
+    </div> 
+            
+    <div class="project-case-card">
+
+    
+    @if (selection != null) {
+    
+        	foreach (var item in selection)
+    	{
+    	
+    	var image = item.Value<IPublishedContent>("articleImage");
+    	
+        	<a href="@item.Url()" class="article">
+        		<div class="card">
+                    <div class="img">
+                        <img src="@image?.Url()">
+                        
+                    </div>
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <hr>
+                        <p class="p-float-right">Read more <i class="fa-solid fa-arrow-right"></i></p>
+                    </div>
+                </div>
+                
+            </a>    
+    		
+    	}
+    
+    
+    }
+    
+    </div>
+</div>
