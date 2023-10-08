@@ -60,7 +60,8 @@
                 .OrderByDescending(x => x.CreateDate);
                 
                 foreach (var title in selection) {
-                <div class="recent-post">@title.Name </div>
+                <div class="recent-post"><h6>@title.Name</h6>@title.CreateDate.ToString("MMM dd, yyyy")</div>
+                <hr>
                 }
                 }
                 
@@ -70,12 +71,12 @@
                 
                  <h4>Categories</h4>
                  
-                 Technology - 20 Posts
-                 Freelancing - 20 Posts
-                 Writing - 20 Posts
-                 Marketing - 20 Posts
-                 Business - 20 Posts
-                 Education - 14 Posts
+                 <h6>Technology - 20 Posts</h6>
+                 <h6>Freelancing - 20 Posts</h6>
+                 <h6>Writing - 20 Posts</h6>
+                 <h6>Marketing - 20 Posts</h6>
+                 <h6>Business - 20 Posts</h6>
+                 <h6>Education - 14 Posts</h6>
                 
                 
             </div>

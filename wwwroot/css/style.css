@@ -562,6 +562,45 @@ p-float-right {
     
 }
 
+
+.article-page .recent {
+    margin-top: 200px;
+}
+
+.article-page .recent .searchbar {
+    background-color: lightgrey;
+    padding: 5px;
+    border-radius: 25px;
+    margin-bottom: 30px;
+}
+
+
+.contact-page .contact-form {
+    background-color: #F0EFE9;
+    padding: 50px;
+}
+
+.contact-page .contact-form input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 25px;
+    border: none;
+    margin:5px;
+}
+
+.contact-page .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 25px;
+    border: none;
+    margin:5px;
+}
+
+.contact-page .contact-form button {
+     width: 100% !important;
+}
+
+
 .footer {
     background-color: #0E1021;
     color: grey;
